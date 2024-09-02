@@ -14,20 +14,20 @@ public class MultiTreadsPracticeApplication {
 		 * 方法一：將繼承Thread的Thread1實例化
 		 * 
 		 */
-		Thread1 thread1 = new Thread1("thread1"); //將做好的Thread1實例化
+		Thread1 thread1 = new Thread1("thread1執行緒1"); //將做好的Thread1實例化，傳入的參數只是執行緒名稱
 //		thread1.setDaemon(true); //像這樣就是把這條thread1設置成Daemon thread。
-		thread1.start(); //注意，這邊不使用thread1.run()，是因為這樣並無法啟動執行緒，只是再將執行緒執行一遍而已
+		thread1.start(); //注意，這邊不使用thread1.run()，是因為這樣並無法啟動執行緒，只是調用thread1的run方法而已。
 		
 		/*
 		 * 方法二：實作Runnable介面
 		 * 
 		 */
-		Thread thread2 = new Thread(new Runnable1(),"Runnable1");//將Runnable1作為參數傳入Thread中建立。
+		Thread thread2 = new Thread(new Runnable1(),"Runnable1實作Runnable介面");//將Runnable1作為參數傳入Thread中建立。
 		thread2.start();
 		
 		//方法2-1:lambda作法
 		Runnable myrunnable = () -> System.out.println("lambda寫法");
-		Thread thread3 = new Thread(myrunnable,"myrunnable");
+		Thread thread3 = new Thread(myrunnable,"myrunnable lambda作法");
 		/*
 		 * 所以其實又可以寫成
 		 * Thread thread4 = new Thread(() -> System.out.println("lambda寫法2"),"myrunnable");
@@ -44,7 +44,7 @@ public class MultiTreadsPracticeApplication {
 		}
 		System.out.println("主程序最後才完成");
 		
-		//死鎖Dead loock
+		//死鎖Dead lock，兩個執行緒都在等待彼此釋放鎖的情況就是死鎖
 		String lock1 = "lock1";
 		String lock2 = "lock2";
 		
