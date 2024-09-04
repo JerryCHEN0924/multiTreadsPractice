@@ -9,7 +9,7 @@ package com.example.multiTreadsPractice.udemyCource;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class synchronlizedDemo {
+public class SynchronlizedDemo {
     //解決辦法一:使用synchronized關鍵字
     private int count = 0;
 
@@ -27,7 +27,7 @@ public class synchronlizedDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new synchronlizedDemo().doWork();
+        new SynchronlizedDemo().doWork();
     }
 
     void doWork() throws InterruptedException {
